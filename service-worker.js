@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.e3d499727bad007c09007b5280def79e.js"
+  "/vue_spin_wheel/precache-manifest.3091dbb3fe5ede6d4252e4ebc1797495.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "portfolio-branding"});
