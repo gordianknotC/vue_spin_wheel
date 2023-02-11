@@ -100,14 +100,34 @@ section
 
 
 ## Drawing SpinningWheel
+
 [vue-source][vue-spinwheel]
-[ts-source][ts-spinwheel]
 
 ![](.README_images/6f43e639.png)
+```vue
+<template lang="pug">
+      .wheel__content(ref="wheelElt")
+        .wheel__innerShadow
+        Sector.wheel__sector(
+          v-for="(item, idx) in wheel?.state.dataList"
+          :style="getSectorStyle(idx)"
+          :key="idx"
+          :text="item.worth"
+          :background-color="getColor(item, idx)"
+          :border-thickness="0"
+          :diameter="280"
+          :sectorAngleInDegree="wheel.sectorAngle"
+          :initialQuadrant="4"
+          :fontColor="getFontColor(item)"
+          fontSize="1.5rem"
+        )
+</template>
+```
 
 
 依以上 Sector 組件實作 SpinWheel 邏輯
-__source__
+
+[ts-source][ts-spinwheel]
 ```ts
 export class SpinWheel<T> {
   /** spin counter 計數，用來疊加 spin 度數，如第一次轉 1000 度，第二次 counter 疊加就變成 2000*/
