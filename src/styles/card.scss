@@ -1,0 +1,34 @@
+.branding-card {
+  @apply rounded-md p-4;
+
+  &--p6 {
+    @apply p-6;
+  }
+
+  &--dark {
+    @apply bg-bg-dark;
+  }
+
+  &--dark-hover {
+    @apply border border-solid border-bg-dark transition-colors ease-in-out duration-300 cursor-pointer;
+    &:hover {
+      @apply border-primary-light;
+    }
+  }
+
+  &--med-dark {
+    @apply bg-primary-med_dark;
+  }
+
+  &--gradient {
+    @apply rounded-md bg-gradient-to-b from-primary to-primary-med_light border border-solid border-primary-light;
+  }
+
+  &--border {
+    @apply border border-solid border-primary-light;
+  }
+
+  &--dashed-border {
+    @apply border border-dashed border-primary-light;
+  }
+}

@@ -1,0 +1,14 @@
+html {
+  font-size: 16px;
+  @apply bg-bg font-lexend text-light;
+}
+.container {
+  @apply px-6 mx-auto;
+}
+
+.text-hidden {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

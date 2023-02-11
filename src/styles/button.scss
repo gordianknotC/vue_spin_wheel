@@ -1,0 +1,51 @@
+.branding-btn {
+  @apply rounded-md;
+
+  &--shadow {
+    box-shadow: 0 2px 7px 0 rgba(4, 2, 44, 0.5);
+  }
+
+  &--border-primary-light {
+    @apply border border-solid border-primary-light;
+  }
+
+  &--gradient-primary-primary-med_light {
+    @apply bg-gradient-to-b from-primary to-primary-med_light text-white border-none;
+  }
+
+  &--gradient-tertiary-light-tertiary {
+    @apply bg-gradient-to-b from-tertiary-light to-tertiary text-primary-dark border-none;
+  }
+
+  &--disabled {
+    @apply text border-transparent bg-transparent;
+  }
+}
+
+
+.btn-tertiary {
+  @extend .branding-btn;
+  @extend .branding-btn--shadow;
+  @extend .branding-btn--gradient-tertiary-light-tertiary;
+  @apply px-2 py-1 font-semibold;
+}
+
+.btn-disabled {
+  @extend .branding-btn;
+  @extend .branding-btn--disabled;
+  @apply px-2 py-1 font-semibold;
+}
+
+.fab{
+  width: 100%;
+  position: fixed !important;
+  &__bottom{
+    left: 50%;
+    margin-left: -50%;
+    bottom: 1.5rem;
+  }
+  &__bottom-left{
+  }
+  &__bottom-right{
+  }
+}

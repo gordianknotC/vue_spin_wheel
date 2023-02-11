@@ -1,0 +1,74 @@
+
+/**
+      note:
+
+*     顏色定義寫於 tailwind.config.js, 這裡暫時性重複定義是為了
+*     讓 scss 可以用 tailwind 的變數，原本的作法應該在 tailwind
+*     宣告變數時寫成
+*       success: var(--success-color-in-scss)
+*
+*     然後再至 scss 中宣告 --success-color-in-scss 的顏色
+*     但目前失敗，暫時性解法宣告二次
+*
+**/
+
+
+/** primary colors:
+*    These are the colors that are most frequently used across
+*    your UI and imparts a distinct identity to the product.
+*    These are usually the colors that a brand sets as their identity.
+*
+*    三種命名方式
+*      1）100 為 default 以上為 dark 以下為 light e.g: primary-90 / primary-110
+*      2) dark / light / medium-dark / medium-light
+*      3) accent / medium-accent / trivial / medium-trivial
+*      前二種是視覺上絕對，第三種是相對，用於有 dark theme / light theme 反差類的主題
+* */
+$primary-light: #c495fb;
+$primary-med_light: #8259d1;
+$primary: #603fcf;
+$primary-med_dark: #593eb4;
+$primary-dark: #2a2a83;
+$primary-grey: #bfbfda;
+
+/** secondary / tertiary  colors:
+*    These colors highlight or complement the primary color.
+*    These are to be used sparingly to make the UI elements stand out.
+* */
+$secondary-light: #fdd835;
+$secondary: #fbc02d;
+$secondary-dark: #f9a825;
+
+$tertiary-light: #3acdec;
+$tertiary: #05a2c3;
+
+
+/**
+* neutral colors: (如灰階，文字）
+*  These include shades of grey, all the way from White to Black.
+*  These are used for backgrounds, text colors, etc, and form the majority of your UI.
+*
+* semantic colors: （如 success/error/info/warning)
+*  These are the colors that communicate purpose. They help users convey messages.
+*  For example, Green has a positive connotation. We use Green to convey success,
+*  confirmation messages, etc.
+* */
+
+$text-color-light: #ffffff;
+$text-color: #bfbfda;
+$text-color-med_dark: $primary-dark;
+$text-color-dark: #000000;
+$text-color-active: $tertiary-light;
+
+
+$success-color: #5aa22e;
+$success-color-light: #63faba;
+
+$error-color: #bf1111;
+$error-color-light: #fa638c;
+
+$warning-color: #e2ab00;
+$warning-color-dark: #f0b90b;
+$warning-color-light: #f8da79;
+
+$info-color: $primary-med_light;

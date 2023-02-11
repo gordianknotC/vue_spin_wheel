@@ -1,0 +1,16 @@
+<svg id="icon_Wallet" data-name="icon / Wallet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#603fcf"/>
+      <stop offset="1" stop-color="#8259d1"/>
+    </linearGradient>
+  </defs>
+  <circle id="Ellipse_83" data-name="Ellipse 83" cx="16" cy="16" r="16" fill="url(#linear-gradient)"/>
+  <rect id="Rectangle_1264" data-name="Rectangle 1264" width="24" height="24" transform="translate(4 4)" fill="none"/>
+  <g id="Group_4697" data-name="Group 4697" transform="translate(-206.135 -134.528)">
+    <g id="Group_4696" data-name="Group 4696" transform="translate(214.5 145)">
+      <path id="Path_4486" data-name="Path 4486" d="M343.728,284.239h11.094a.527.527,0,0,1,.513.541v9.974a.527.527,0,0,1-.513.54h-12.2a.527.527,0,0,1-.513-.54V284.78a.528.528,0,0,1,.513-.541Z" transform="translate(-342.105 -284.239)" fill="#fff"/>
+      <path id="Rectangle_2211" data-name="Rectangle 2211" d="M2.084,0h4a0,0,0,0,1,0,0V4.168a0,0,0,0,1,0,0h-4A2.084,2.084,0,0,1,0,2.084v0A2.084,2.084,0,0,1,2.084,0Z" transform="translate(9.186 3.444)" fill="#fff" stroke="#6d49cf" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

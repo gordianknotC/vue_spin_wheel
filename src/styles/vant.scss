@@ -1,0 +1,161 @@
+@import "tailwind.color";
+
+// 全局修改 vant (css var(...))
+:root {
+  // toast
+  --van-toast-font-size: 1rem;
+  --van-toast-icon-size: 1.2rem;
+  --van-toast-background-color: rgba(255,255,255, 160);
+  --van-toast-default-width: calc(100% - 4rem);
+  --van-toast-max-width: 100%;
+  --van-toast-default-min-height: 2rem;
+  --van-toast-position-bottom-distance: 4rem;
+  --van-toast-text-color: #{$primary-dark};
+
+  // password
+  --van-password-input-background-color: #{$primary-med_dark};
+  --van-password-input-border-radius: 5px;
+  --van-password-input-dot-color: #{$text-color-light};
+  --van-password-input-dot-size: 0.5rem;
+  --van-password-input-height: 2.5rem;
+
+  // fields
+  --van-field-label-color: #{$text-color-light};
+  --van-field-input-text-color: #{$primary-grey};
+  --van-field-placeholder-text-color: #{$primary-grey};
+
+  // cell
+  --van-cell-group-background-color: #{$primary-dark};
+  --van-cell-background-color: #{$primary-dark};
+  --van-button-default-background-color: #{$primary-dark};
+
+  // tab
+  --van-tab-text-color: #{$text-color};
+  --van-tab-active-text-color: #{$text-color-light};
+
+  // tabs
+  --van-tabs-nav-background-color: #{$primary-dark};
+  --van-tabs-bottom-bar-color: #{$tertiary-light};
+
+
+  .van-tabbar {
+    height: 56px;
+    box-shadow: 0 2px 20px 0 rgba(4, 2, 44, 0.5);
+    @apply bg-primary-dark;
+    .van-tabbar-item {
+      @apply bg-primary-dark;
+    }
+  }
+
+  .van-nav-bar {
+    height: 56px;
+    box-shadow: 3px 0 20px 0 rgba(4, 2, 44, 0.5);
+    @apply bg-primary-dark;
+    &__content {
+      height: 56px;
+    }
+    &__left {
+      i {
+        @apply text-white;
+      }
+    }
+    &__text {
+      @apply text-white text-base;
+    }
+  }
+
+  .van-field{
+    @apply flex flex-col m-0 p-0 mt-2;
+    overflow: visible;
+    background-color: transparent;
+
+    &__value{
+      @apply p-2 pl-4 inline-flex;
+      border: solid 1px $primary-light;
+      border-radius: 10px;
+      background-color: $primary-med_dark;
+    }
+    &__body{
+      @apply w-full;
+    }
+    &__right-icon{
+      @apply inline-flex;
+      line-height: normal;
+    }
+
+    &__label{
+      @apply inline-flex w-full text-base font-lexend py-2;
+      padding-bottom: 0.3rem;
+    }
+
+    &__error-message{
+      position: absolute;
+      bottom: -1.4rem;
+      width: 100%;
+      text-align: right;
+      right: 0;
+    }
+  }
+
+  .van-password-input{
+    @apply m-0;
+    &__item{
+      border-radius: var(--van-password-input-border-radius);
+      border: solid 1px $primary-light;
+    }
+
+    &__error-info{
+      @apply text-right;
+    }
+  }
+
+  .van-number-keyboard{
+    color: $primary-dark;
+  }
+
+  .van-share-sheet {
+    &__title {
+      @apply text-2xl;
+    }
+    &__cancel::before {
+    }
+  }
+
+  .van-toast{
+    @apply py-2 flex flex-row inline-flex;
+    &--bottom{
+    }
+    &--fail{
+      @apply text-light;
+      background-color: $error-color;
+    }
+    &--success{
+      @apply text-light;
+      background-color: $success-color;
+    }
+    &--info{
+      @apply text-light;
+      background-color: $info-color;
+    }
+    &__text{
+      margin: 0;
+    }
+  }
+}
+
+
+.primary-bt-gradient{
+  box-shadow: 0 2px 7px 0 rgba(4, 2, 44, 0.5);
+  background-image: linear-gradient(to bottom, $tertiary-light, $tertiary);
+}
+
+.brand-heading-gradient{
+  background-image: linear-gradient(to bottom, $primary, $primary-med_light);
+}
+
+
+
+
+
+
+
