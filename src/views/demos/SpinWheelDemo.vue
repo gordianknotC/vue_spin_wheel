@@ -8,7 +8,7 @@ section.p-4
       .wheel__content(ref="wheelElt")
         .wheel__innerShadow
         Sector.wheel__sector(
-          v-for="(item, idx) in wheelList"
+          v-for="(item, idx) in list"
           :style="getSectorStyle(idx)"
           :key="idx"
           :text="item.worth"
@@ -92,6 +92,7 @@ import {
 import { RouletteRecord, rouletteRecord} from "~/types/apiTypes";
 import Sector from "~/components/Sector.vue";
 import BaseApi from "~/services/apiService";
+import {SpinWheel} from "~/components/SpinWheel";
 
 const randomArr = (start: number, end: number) => {
   return Math.round(start + Math.random() * (end - start));
@@ -116,16 +117,15 @@ export default defineComponent({
       3: "#62faba"
     };
 
+    let wheel: SpinWheel<RouletteRecord>;
     const state = reactive({
       list: [] as RouletteRecord[], //  轉盤資料 list
-      wheelList: [] as RouletteRecord[],
-      prizesLength: 0, // 單片數量
+      prizesLength: 0, // sector numbers
       initialDegree: 90, // 開始指針位置
       targetDegree: 0, // 目的位置
       stage: EStage.idle, // 狀態 idle / spinning
       counter: 1, // spin 次數，用來疊加
-      sectorAngle: 0,
-
+      sectorAngle: 0, // sector 大小 in degree
       luckyList: [] as rouletteRecord[] // 得獎紀錄 list
     });
 
@@ -208,7 +208,6 @@ export default defineComponent({
           big.firstPrize = true
         }
       })
-      state.wheelList = data
     }
 
     // 取得得獎名單

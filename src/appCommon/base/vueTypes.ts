@@ -11,7 +11,7 @@ export {
 
 export type {
   UnwrapRef, PropType, Prop , ComponentPropsOptions,
-  Ref, ComputedRef, ToRefs, ReactiveEffect,
+  Ref, ComputedRef, ToRefs, ReactiveEffect
 } from "vue";
 
 

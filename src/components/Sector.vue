@@ -9,8 +9,7 @@ section
 </template>
 
 <script lang="ts">
-import { ComputedRef, defineComponent, ref, watch } from "vue";
-import {onMounted} from "~/appCommon/base/vueTypes";
+import { ComputedRef, defineComponent, ref, watch, onMounted } from "vue";
 const randomArr = (start: number, end: number) => {
   return Math.round(start + Math.random() * (end - start));
 };
@@ -129,18 +128,19 @@ export default defineComponent({
       const sectorBeforeElt = sector.value!.querySelector(".sector__before") as HTMLElement;
       const sectorAfterElt = sector.value!.querySelector(".sector__after") as HTMLElement;
       const sectorContentElt = sector.value!.querySelector(".sector__content") as HTMLElement;
-
       Object.assign(sectorContainer.value!.style!, {
         width: diameter,
         height: diameter,
       })
       Object.assign(sectorElt.style, sectorBaseStyle);
+      //
       Object.assign(sectorBeforeElt.style, sectorBeforeAndAfterStyle);
-      Object.assign(sectorAfterElt.style, sectorBeforeAndAfterStyle);
-      Object.assign(sectorContentElt.style, sectorBeforeAndAfterStyle);
-
       Object.assign(sectorBeforeElt.style, sectorBeforeStyle);
+      //
+      Object.assign(sectorAfterElt.style, sectorBeforeAndAfterStyle);
       Object.assign(sectorAfterElt.style, sectorAfterStyle);
+      //
+      Object.assign(sectorContentElt.style, sectorBeforeAndAfterStyle);
       Object.assign(sectorContentElt.style, sectorContentStyle);
     })
 
@@ -160,7 +160,9 @@ export default defineComponent({
   height:100px;
   overflow:hidden;
   border-radius:0 50px 50px 0;
-  &__before, &__after, &__content{
+  &__before,
+  &__after,
+  &__content{
     position: absolute;
     content:"";
     box-sizing:border-box;

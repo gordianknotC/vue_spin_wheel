@@ -1,78 +1,103 @@
+# Vue SpinningWheel
+[Demo](https://gordianknotc.github.io/vue_spin_wheel)
 
-Branch 有四種 
-- github_version 
-    - 原碼最新
-    - fix BaseSpanCounter BasePeriodCounter
-    - fix SpinWheelDemo 
-    - 修正一些 fixme: temporary, 因 api server network error 的原由無法放上 demo
-- vue_spin_wheel
-    - 移除不必要檔
-    - env.gh-pages
-- otp_counter
-    - 移除不必要檔
-    - env.gh-pages
 
-# template
 
-## Project setup
-```
-yarn install
-```
+## Drawing Sector
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn develop
-yarn production
-yarn release
+__properties__:
+- text
+- background-color
+- border-thickness
+- sectorAngleInDegree - sector大小（度）
+- initialQuadrant - 初始象限
+- diameter - sector 直徑
+- font-Color
+### Examples
+```vue
+<template lang="pug">
+Sector(
+    text="45'-4 quadrant"
+    background-color="blue"
+    :border-thickness="0"
+    :sectorAngleInDegree="45"
+    :initialQuadrant="4"
+    :diameter="280"
+    font-color="black"
+)
+</template>
 ```
 
-### Lints and fixes files
+![](.README_images/98f360e7.png)
+
+```vue
+<template lang="pug">
+Sector(
+    text="60'-4 quadrant"
+    background-color="orange"
+    :border-thickness="0"
+    :sectorAngleInDegree="60"
+    :initialQuadrant="4"
+    :diameter="280"
+)
+</template>
 ```
-yarn lint
+![](.README_images/18ff1f2d.png)
+
+
+```vue
+<template lang="pug">
+Sector(
+    text="45'-1 quadrant"
+    background-color="blue"
+    :border-thickness="0"
+    :sectorAngleInDegree="45"
+    :initialQuadrant="1"
+    :diameter="280"
+)
+</template>
 ```
 
-### Prettier and fixes files
+![](.README_images/5c685255.png)
+
+
+```vue
+<template lang="pug">
+Sector(
+    text="60'-2 quadrant"
+    background-color="orange"
+    :border-thickness="0"
+    :sectorAngleInDegree="60"
+    :initialQuadrant="2"
+    :diameter="280"
+)
+</template>
 ```
-yarn prettier
+![](.README_images/29c01b49.png)
+
+
+
+
+```vue
+<template lang="pug">
+section
+  .container.relative(ref="sectorContainer")
+    .sector(ref="sector")
+      .sector__before
+      .sector__content {{text}}
+      .sector__after
+
+</template>
 ```
 
-### Project Structure
-```
-src/assets/images            // 圖片檔案
-src/assets/fonts             // 字體檔案
-src/assets/styles            // css檔案
-src/assets/styles/base.scss  // 基本scss
-src/assets/styles/custom     // 調整第三方樣式
-src/services                 // api
-src/types                    // typescript
-src/store                    // 狀態管理
-src/router                   // 路由
-src/components               // 組件
-src/utils                    // 工具
-src/views                    // pages
-src/i18n                     // 語系
-src/plugins                  // 第3方套件
-src/layout                   // layout
-src/const.ts                 // 專案資料定義
-src/config.ts                // 專案設定定義
-```
+### Sector 組成
+|  container   | before  |  content |
+|  ----        | ----    |  ----    |
+| ![](.README_images/3d6f823d.png)  | ![](.README_images/c192f4c7.png) | ![](.README_images/5be79b72.png) |
 
 
 
 
+## Drawing SpinningWheel
 
-
-
-
-
-
-
-
-
-
-
+![](.README_images/6f43e639.png)
