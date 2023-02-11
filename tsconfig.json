@@ -65,12 +65,10 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/**/*.svg",
-    "node_modules/cypress/types/cypress-expect.d.ts",
-    "node_modules/cypress/types/cypress-expect.d.ts",
-    "node_modules/cypress/types/cypress-expect.d.ts"
+    "src/**/*.svg"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "node_modules/**"
   ]
 }

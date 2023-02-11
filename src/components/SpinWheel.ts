@@ -1,15 +1,12 @@
-import type {
-  UnwrapRef, PropType, Prop, ComponentPropsOptions,
-  Ref, ComputedRef, ToRefs, ReactiveEffect, UnwrapNestedRefs
-} from "vue";
-import {watch} from "~/appCommon/base/vueTypes";
+import { ComputedRef, defineComponent, Ref, ref, watch } from "vue";
 
+export
 enum SpinWheelStage {
   idle,
   spinning
 }
 
-type SpinWheelState<T> = {
+export type SpinWheelState<T> = {
   element: HTMLElement,
   dataList: T[],
   initialDegree: number,
@@ -19,7 +16,7 @@ type SpinWheelState<T> = {
 
 export class SpinWheel<T> {
   private _spinCounter: number = 1;
-  private _completer: { resolve: any, reject: any };
+  private _completer?: { resolve: any, reject: any };
 
   get stage(): SpinWheelStage {
     return this.state.stage!;
@@ -48,36 +45,42 @@ export class SpinWheel<T> {
     wheelElt.ontransitionstart = () => {
       this.state.stage = SpinWheelStage.spinning;
       _onTransitionStart();
+      console.log("start, set stage to", this.state.stage);
     };
 
     wheelElt.ontransitionend = () => {
       this.state.stage = SpinWheelStage.idle;
       this._spinCounter++;
-      this._completer.resolve(true);
+      this._completer?.resolve(true);
       _onTransitionEnd();
+      console.log("end, set stage to", this.state.stage);
     };
 
-    watch(
-      () => state.targetDegree,
-      () => {
-        state.element.style.transform = `rotate(${state.targetDegree}deg)`;
-      }
-    );
+    // watch(
+    //   () => [this.state.targetDegree, this.state.dataList],
+    //   () => {
+    //     console.log("on target degree updated:", state.targetDegree);
+    //     state.element.style.transform = `rotate(${state.targetDegree}deg)`;
+    //   }
+    // );
   }
 
   protected _spinTo(condition: (elt: T) => boolean) {
-    let acc = 0;
-    const state = this.state;
     const initialSpeed = 360 * this.speed * this._spinCounter;
-    const targetIndex = state.dataList.findIndex(condition);
-    const targetDegree = this.sectorAngle * targetIndex - state.initialDegree;
+    const targetIndex = this.state.dataList.findIndex(condition);
+    console.log("spin to index:", targetIndex);
+
+    const targetDegree = this.sectorAngle * targetIndex - this.state.initialDegree;
     const shift = +this.sectorAngle / 2;
-    state.targetDegree = -(initialSpeed + targetDegree + shift);
+    this.state.targetDegree = -(initialSpeed + targetDegree + shift);
+    console.log("set target degree to:", this.state.targetDegree);
+
+    this.state.element.style.transform = `rotate(${this.state.targetDegree}deg)`;
   }
 
   async spin(condition: (elt: T) => boolean): Promise<boolean> {
     if (this.state.stage == SpinWheelStage.spinning)
-      return;
+      return Promise.resolve(false);
 
     const future = new Promise<boolean>((resolve, reject) => {
       this._completer = {resolve, reject};
