@@ -141,7 +141,6 @@ export default defineComponent({
       })
     }
 
-
     onMounted(async () => {
       const state: SpinWheelState<RouletteRecord> = reactive({
         dataList: [],
