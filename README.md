@@ -204,6 +204,13 @@ export class SpinWheel<T> {
 }
 ```
 
+## Todo
+- SpinWheel
+    - [ ] 轉為跨平台組 ts 件
+- Sector
+    - [V] vue
+    - [ ] react
+
 [sector]: src/components/Sector.vue
 [vue-spinwheel]: src/views/demos/SpinWheelDemo.vue
 [ts-spinwheel]: src/components/SpinWheel.ts
