@@ -78,6 +78,7 @@ Sector(
 
 
 
+### Sector 組成
 
 ```vue
 <template lang="pug">
@@ -91,7 +92,6 @@ section
 </template>
 ```
 
-### Sector 組成
 |  container   | before  |  content |
 |  ----        | ----    |  ----    |
 | ![](.README_images/3d6f823d.png)  | ![](.README_images/c192f4c7.png) | ![](.README_images/5be79b72.png) |
