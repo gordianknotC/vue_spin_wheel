@@ -1,20 +1,19 @@
 # Vue SpinningWheel
+
+![](.README_images/6f43e639.png)
+
 [Demo](https://gordianknotc.github.io/vue_spin_wheel)
 
 
+## Todo
+- SpinWheel
+  - [ ] 轉為跨平台組 ts 件
+- Sector
+  - [V] vue
+  - [ ] react
+  
 
-## Drawing Sector
-[source][sector]
-
-__properties__:
-- text
-- background-color
-- border-thickness
-- sectorAngleInDegree - sector大小（度）
-- initialQuadrant - 初始象限
-- diameter - sector 直徑
-- font-Color
-### Examples
+## Drawing Sector | [source][sector]
 ```vue
 <template lang="pug">
 Sector(
@@ -28,9 +27,39 @@ Sector(
 )
 </template>
 ```
+__properties__:
+- text
+- background-color
+- border-thickness
+- sectorAngleInDegree - sector大小（度）
+- initialQuadrant - 初始象限
+- diameter - sector 直徑
+- font-Color
+### Examples
 
-![](.README_images/98f360e7.png)
+|  quarter4-45   | quarter4-60  | 
+|  ----          | ----         |  
+| ![](.README_images/98f360e7.png)  | ![](.README_images/18ff1f2d.png) | 
 
+|  quarter1-45   | quarter2-60  | 
+|  ----          | ----         |  
+| ![](.README_images/5c685255.png)  | ![](.README_images/29c01b49.png) | 
+
+__quarter4-45__
+```vue
+<template lang="pug">
+Sector(
+    text="45'-4 quadrant"
+    background-color="blue"
+    :border-thickness="0"
+    :sectorAngleInDegree="45"
+    :initialQuadrant="4"
+    :diameter="280"
+    font-color="black"
+)
+</template>
+```
+__quarter4-60__
 ```vue
 <template lang="pug">
 Sector(
@@ -43,9 +72,7 @@ Sector(
 )
 </template>
 ```
-![](.README_images/18ff1f2d.png)
-
-
+__quarter1-45__
 ```vue
 <template lang="pug">
 Sector(
@@ -58,10 +85,7 @@ Sector(
 )
 </template>
 ```
-
-![](.README_images/5c685255.png)
-
-
+__quarter2-60__
 ```vue
 <template lang="pug">
 Sector(
@@ -74,8 +98,6 @@ Sector(
 )
 </template>
 ```
-![](.README_images/29c01b49.png)
-
 
 
 ### Sector 組成
@@ -100,10 +122,8 @@ section
 
 
 ## Drawing SpinningWheel
-
 [vue-source][vue-spinwheel]
 
-![](.README_images/6f43e639.png)
 ```vue
 <template lang="pug">
       .wheel__content(ref="wheelElt")
@@ -125,7 +145,9 @@ section
 ```
 
 
-依以上 Sector 組件實作 SpinWheel 邏輯
+
+
+依以上 Sector 組件實作 SpinWheel 邏輯部份
 
 [ts-source][ts-spinwheel]
 ```ts
@@ -204,12 +226,7 @@ export class SpinWheel<T> {
 }
 ```
 
-## Todo
-- SpinWheel
-    - [ ] 轉為跨平台組 ts 件
-- Sector
-    - [V] vue
-    - [ ] react
+
 
 [sector]: src/components/Sector.vue
 [vue-spinwheel]: src/views/demos/SpinWheelDemo.vue
