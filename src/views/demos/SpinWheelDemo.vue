@@ -90,7 +90,7 @@ import {
   reactive,
   toRefs
 } from "~/appCommon/base/vueTypes";
-import { RouletteRecord, rouletteRecord} from "~/types/apiTypes";
+import { RouletteRecord } from "~/types/apiTypes";
 import Sector from "~/components/Sector.vue";
 import BaseApi from "~/services/apiService";
 import {SpinWheel, SpinWheelStage, SpinWheelState} from "~/components/SpinWheel";

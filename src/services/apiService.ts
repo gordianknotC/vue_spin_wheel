@@ -2,17 +2,18 @@ import { AxiosResponse } from "axios";
 
 import {
   RouletteResponse,
-  roulettePayload,
+  RoulettePayload,
   RouletteRandomPayload,
-  RouletteRandom,
+  RouletteRandomResponse,
   RouletteRecordResponse,
- RouletteRecord, rouletteRecord
+  RouletteRecord, 
+  RouletteRecordDefectResponse
 } from "~/types/apiTypes";
 
 
 class ApiService {
 
-  async getRoulette(payload: roulettePayload): Promise<RouletteResponse> {
+  async getRoulette(payload: RoulettePayload): Promise<RouletteResponse> {
     //fixme: temporary
     const redundant = {
       create_datetime: "",
@@ -40,7 +41,7 @@ class ApiService {
     // return this.get("/roulette", payload);
   }
 
-  async getRouletteRandom(payload: RouletteRandomPayload): Promise<RouletteRandom> {
+  async getRouletteRandom(payload: RouletteRandomPayload): Promise<RouletteRandomResponse> {
     //fixme: temporary
     const record: RouletteRecord = {
       create_datetime: "",
@@ -54,24 +55,75 @@ class ApiService {
       update_datetime: "",
       worth: ""
     };
-    const response: RouletteRandom = {data: record};
+    const response: RouletteRandomResponse = {data: record};
     return Promise.resolve(response);
     // return this.get("/roulette/random", payload);
   }
 
   async getRouletteRecord(): Promise<RouletteRecordResponse> {
     //fixme: temporary
-    const record: rouletteRecord[] = [{
+    const record: RouletteRecord[] = [{
       create_datetime: "",
-      record_id: 0,
-      username: "",
-      worth: ""
+      id: 0,
+      name: "",
+      worth: "",
+      end_datetime: "",
+      firstPrize: false,
+      reward_type: 0,
+      start_datetime: "",
+      type: 0,
+      update_datetime: "",
     }];
     const response: RouletteRecordResponse = {data: record};
     return Promise.resolve(response);
     // return this.get("/roulette/record");
   }
 
+  /** 不佳的 response 回傳格式, data 可能為 null
+   * ### Defect 型別說明
+    ```ts
+    type DataResponse<T> = {
+      data: T;
+      pager?: Pager | null | undefined;
+    };
+    type RouletteRecordDefectResponse = DataResponse<RouletteRecord[] | null>;
+    const response: RouletteRecordDefectResponse = {} as any;
+    // 以下會錯誤
+    assert(()=>response.data.length > 0);
+    ```
+
+    --- 
+
+    ### 取用時注意修正
+    data response 型別不一，可能為陣列也可能為 null, 使得 develop 在取用時需要進行以下操作
+
+    ```ts
+    function fetchData(){
+      const response = await BaseApi.fetchData();
+      return response.data ?? [];
+    }
+    ```
+    ---
+
+   */
+  async getRouletteRecordDefect(): Promise<RouletteRecordDefectResponse> {
+    //fixme: temporary
+    const record: RouletteRecord[] = [{
+      create_datetime: "",
+      id: 0,
+      name: "",
+      worth: "",
+      end_datetime: "",
+      firstPrize: false,
+      reward_type: 0,
+      start_datetime: "",
+      type: 0,
+      update_datetime: "",
+    }];
+    const response: RouletteRecordResponse = {data: record};
+    return Promise.resolve(response);
+    // return this.get("/roulette/record");
+  }
 }
 
 
